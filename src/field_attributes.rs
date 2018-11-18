@@ -3,7 +3,7 @@ use chrono;
 use serde;
 
 use std::str::FromStr;
-use std::fmt::{Display, Debug};
+use std::fmt::Display;
 
 use serde::{Deserialize, Deserializer};
 
@@ -407,7 +407,7 @@ where
 pub fn deserialize_default_from_empty_object<'de, D, T>(deserializer: D) -> Result<T, D::Error>
 where
     D: Deserializer<'de>,
-    T: Deserialize<'de> + Default + Debug,
+    T: Deserialize<'de> + Default,
 {
     #[derive(Debug, Deserialize)]
     #[serde(deny_unknown_fields)]
